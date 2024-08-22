@@ -18,6 +18,7 @@ services:
 #      - http_proxy=http://www-proxy.helsenord.no:8080
     volumes:
       - ollama:/root/.ollama
+      - ./scripts:/root/scripts
       - ./ollama-models:/root/ollama-models 
     # GPU support (turn off by commenting with # if you don't have an nvidia gpu)
     deploy:
