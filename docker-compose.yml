@@ -13,8 +13,12 @@ services:
     ports:
       - 11434:11434
       - 53:53
+#    environment:
+#      - https_proxy=http://www-proxy.helsenord.no:8080
+#      - http_proxy=http://www-proxy.helsenord.no:8080
     volumes:
       - ollama:/root/.ollama
+      - ./ollama-models:/root/ollama-models 
     # GPU support (turn off by commenting with # if you don't have an nvidia gpu)
     deploy:
       resources:
@@ -35,7 +39,7 @@ services:
     depends_on:
       - ollama
     ports:
-      - 3000:8080
+      - 30000:8080
     environment:
       - "OLLAMA_API_BASE_URL=http://ollama:11434/api"
     extra_hosts:
